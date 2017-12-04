@@ -1,6 +1,4 @@
-# toolbox
-
-> Phandeeyar Toolbox for CSO
+# Phandeeyar Toolbox
 
 ## Build Setup
 
