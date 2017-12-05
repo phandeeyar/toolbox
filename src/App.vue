@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="container text-center">
+    <div class="container">
       <h1>Phandeeyar Toolbox</h1>
       <router-view></router-view>
     </div>
