@@ -1,15 +1,19 @@
 <template>
   <div id="app">
+    <app-header></app-header>
     <div class="container">
-      <h1>Phandeeyar Toolbox</h1>
       <router-view></router-view>
     </div>
   </div>
 </template>
 
 <script>
+import header from './components/header'
 export default {
-  name: 'app'
+  name: 'app',
+  components: {
+    'app-header': header
+  }
 }
 </script>
 
