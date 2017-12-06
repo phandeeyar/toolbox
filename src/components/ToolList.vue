@@ -1,6 +1,9 @@
 <template>
   <div class="row" id="tool-list">
-    <div class="col-md-6 col-sm-12" v-for="tool in tools">
+    <div class="col-md-12 search-box">
+      <input v-model="search" type="text" class="form-control" id="toolSearch" placeholder="Search ...">
+    </div>
+    <div class="col-md-6 col-sm-12" v-for="tool in filteredList">
       <div class="row">
         <div class="col-md-4">
           <img v-if="tool.logo_img" :src="tool.logo_img" :alt="tool.tools_name" width="100%">
@@ -23,11 +26,21 @@
 export default {
   data () {
     return {
+      search: '',
       tools: []
     }
   },
   created () {
     this.fetchData()
+  },
+  computed: {
+    filteredList: function () {
+      return this.tools.filter((function (_this) {
+        return function (tool) {
+          return tool.tools_name.toLowerCase().includes(_this.search.toLowerCase())
+        }
+      })(this))
+    }
   },
   methods: {
     fetchData () {
@@ -43,3 +56,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  .search-box {
+    margin: 30px 0px;
+  }
+</style>
