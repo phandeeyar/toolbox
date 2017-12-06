@@ -7,6 +7,7 @@
       <div class="row">
         <div class="col-md-4">
           <img v-if="tool.logo_img" :src="tool.logo_img" :alt="tool.tools_name" width="100%">
+          <img v-else src="../assets/images/toolbox_default.png" width="100%" alt="Default Image">
         </div>
         <div class="col-md-8">
             <h3>{{ tool.tools_name }}</h3>
