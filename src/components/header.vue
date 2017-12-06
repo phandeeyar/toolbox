@@ -8,6 +8,7 @@
 			<li class="green"></li>
 		</ul>
 		<img src="../assets/images/pdy-logo.png" width="200px" alt="Phandeeyar" class="pdy-logo">
+		<h1>Toolbox</h1>
 	</header>
 </template>
 
