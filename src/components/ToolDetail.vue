@@ -21,6 +21,7 @@
       <p><strong>Review</strong> : {{ tool.burmese_review }}</p>
       <p><strong>Pros</strong> : {{ tool.pros }} </p>
       <p><strong>Cons</strong> : {{ tool.cons }}</p>
+      <iframe v-if="tool.video_tuto" width="560" height="315" :src="videoEmbedLink" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
     </div>
   </div>
 </template>
@@ -28,6 +29,11 @@
 <script>
 export default {
   name: 'tool-details',
-  props: ['tool']
+  props: ['tool'],
+  computed: {
+    videoEmbedLink: function () {
+      return this.tool.video_tuto.replace('watch?v=', 'embed/')
+    }
+  }
 }
 </script>
