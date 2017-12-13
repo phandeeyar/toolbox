@@ -1,15 +1,17 @@
 <template>
   <div class="row tool-details">
-    <div class="col-md-12">
+    <div class="col-md-12 tool-bar">
       <router-link class="btn btn-primary" :to="{ name: 'toollist'}">Back</router-link>
     </div>
     <div class="col-md-3">
-      <img v-if="tool.logo_img" :src="tool.logo_img" :alt="tool.tools_name" width="100%">
-      <img v-else src="../assets/images/toolbox_default.png" width="100%" alt="Default Image">
+      <div class="logo-wrapper">
+        <img v-if="tool.logo_img" :src="tool.logo_img" :alt="tool.tools_name" width="100%" class="tool-logo">
+        <img v-else src="../assets/images/toolbox_default.png" width="100%" alt="Default Image" class="tool-logo">
+      </div>
       <div class="tool-info text_center">
-        <p>Difficulty : {{ tool.skill_level }}</p>
-        <p>Pricing : {{ tool.pricing }}</p>
-        <p>Platform: </p>
+        <p><strong>Difficulty</strong> : {{ tool.skill_level }}</p>
+        <p><strong>Pricing</strong> : {{ tool.pricing }}</p>
+        <p><strong>Platform</strong> : </p>
       </div>
     </div>
     <div class="col-md-9">

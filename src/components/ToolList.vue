@@ -3,7 +3,7 @@
     <div class="col-md-12 search-box">
       <input v-model="search" type="text" class="form-control" id="toolSearch" placeholder="Search ...">
     </div>
-    <div class="col-md-6 col-sm-12" v-for="tool in filteredList">
+    <div class="col-md-6 col-sm-12 tool-wrapper" v-for="tool in filteredList">
       <div class="row">
         <div class="col-md-4">
           <img v-if="tool.logo_img" :src="tool.logo_img" :alt="tool.tools_name" width="100%">
