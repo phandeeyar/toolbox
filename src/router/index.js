@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import ToolList from '@/components/ToolList'
-import ToolDetail from '@/components/ToolDetail'
+import Toolbox from '@/components/Toolbox'
 
 Vue.use(Router)
 
@@ -10,12 +9,14 @@ export default new Router({
     {
       path: '/',
       name: 'toollist',
-      component: ToolList
+      component: Toolbox,
+      props: true
     },
     {
       path: '/:toolId',
       name: 'details',
-      component: ToolDetail
+      component: Toolbox,
+      props: true
     }
   ]
 })

@@ -16,7 +16,9 @@
               {{ tool.skill_level }}
             </p>
             <p><strong>Use Cases : </strong>{{ tool.use_cases }}</p>
-            <p><router-link class="btn btn-primary" :to="{ name: 'details', params: { toolId: tool.slug }}">View Detials</router-link></p>
+            <p>
+              <router-link class="btn btn-primary" :to="{ name: 'details', params: { toolId: tool.slug }}">View Detials</router-link>
+            </p>
         </div>
       </div>
     </div>
@@ -25,14 +27,13 @@
 
 <script>
 export default {
+  name: 'tool-list',
+  props: ['tools'],
   data () {
     return {
       search: '',
-      tools: []
+      tools: this.tools
     }
-  },
-  created () {
-    this.fetchData()
   },
   computed: {
     filteredList: function () {
@@ -41,18 +42,6 @@ export default {
           return tool.tools_name.toLowerCase().includes(_this.search.toLowerCase())
         }
       })(this))
-    }
-  },
-  methods: {
-    fetchData () {
-      var parent = this
-      this.$tabletop.init({
-        key: '1b4izBhz69O3GaiJx1SL94PNRvaIiZFfq-BM9pMPtBD4',
-        callback: function (data, tabletop) {
-          parent.tools = data
-        },
-        simpleSheet: true
-      })
     }
   }
 }
