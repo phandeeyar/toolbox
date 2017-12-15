@@ -9,18 +9,18 @@
         <img v-else src="../assets/images/toolbox_default.png" width="100%" alt="Default Image" class="tool-logo">
       </div>
       <div class="tool-info text_center">
-        <p><strong>Difficulty</strong> : <skill-level :level=tool.skill_level /></p>
-        <p><strong>Pricing</strong> : {{ tool.pricing }}</p>
-        <p><strong>Platform</strong> : </p>
+        <p><span class="prop-label">Difficulty</span> : <skill-level :level=tool.skill_level /></p>
+        <p><span class="prop-label">Pricing</span> : {{ tool.pricing }}</p>
+        <p><span class="prop-label">Platform</span> : </p>
       </div>
     </div>
     <div class="col-md-9">
       <h1>{{ tool.tools_name }}</h1>
-      <p><strong>Type</strong> : <a href="#">{{ tool.category }}</a></p>
-      <p><strong>Use Cases</strong> : {{ tool.use_cases }}</p>
-      <p><strong>Review</strong> : {{ tool.burmese_review }}</p>
-      <p><strong>Pros</strong> : {{ tool.pros }} </p>
-      <p><strong>Cons</strong> : {{ tool.cons }}</p>
+      <p><span class="prop-label">Type</span> : <a href="#">{{ tool.category }}</a></p>
+      <p><span class="prop-label">Use Cases</span> : {{ tool.use_cases }}</p>
+      <p><span class="prop-label">Review</span> : {{ tool.burmese_review }}</p>
+      <p><span class="prop-label">Pros</span> : {{ tool.pros }} </p>
+      <p><span class="prop-label">Cons</span> : {{ tool.cons }}</p>
       <iframe v-if="tool.video_tuto" width="560" height="315" :src="videoEmbedLink" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
     </div>
   </div>

@@ -15,7 +15,7 @@
               <span class="prop-label">Difficulity : </span>
               <skill-level :level=tool.skill_level />
             </p>
-            <p><strong>Use Cases : </strong>{{ tool.use_cases }}</p>
+            <p><span class="prop-label">Use Cases : </span>{{ tool.use_cases }}</p>
             <p>
               <router-link class="btn btn-primary" :to="{ name: 'details', params: { toolId: tool.slug }}">View Detials</router-link>
             </p>
