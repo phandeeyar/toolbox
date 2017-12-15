@@ -9,7 +9,7 @@
         <img v-else src="../assets/images/toolbox_default.png" width="100%" alt="Default Image" class="tool-logo">
       </div>
       <div class="tool-info text_center">
-        <p><strong>Difficulty</strong> : {{ tool.skill_level }}</p>
+        <p><strong>Difficulty</strong> : <skill-level :level=tool.skill_level /></p>
         <p><strong>Pricing</strong> : {{ tool.pricing }}</p>
         <p><strong>Platform</strong> : </p>
       </div>
@@ -27,9 +27,13 @@
 </template>
 
 <script>
+import Difficulity from './difficulty'
 export default {
   name: 'tool-details',
   props: ['tool'],
+  components: {
+    'skill-level': Difficulity
+  },
   computed: {
     videoEmbedLink: function () {
       return this.tool.video_tuto.replace('watch?v=', 'embed/')

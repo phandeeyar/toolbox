@@ -11,9 +11,9 @@
         </div>
         <div class="col-md-8">
             <h3>{{ tool.tools_name }}</h3>
-            <p>
-              <strong>Difficulity : </strong>
-              {{ tool.skill_level }}
+            <p v-if="tool.skill_level">
+              <span class="prop-label">Difficulity : </span>
+              <skill-level :level=tool.skill_level />
             </p>
             <p><strong>Use Cases : </strong>{{ tool.use_cases }}</p>
             <p>
@@ -26,9 +26,13 @@
 </template>
 
 <script>
+import Difficulity from './difficulty'
 export default {
   name: 'tool-list',
   props: ['tools'],
+  components: {
+    'skill-level': Difficulity
+  },
   data () {
     return {
       search: '',

@@ -10,3 +10,20 @@
 		padding:20px;
 	}
 }
+
+.prop-label {
+	font-weight: bold;
+}
+
+.diff-wrapper {
+	display:inline-block;
+	position: relative;
+    top: 9px;
+	.material-design-icon {
+		float:left;
+		.material-design-icon__svg {
+			width: 18px;
+			height: 18px;
+		}
+	}
+}
