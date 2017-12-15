@@ -9,9 +9,23 @@
         <img v-else src="../assets/images/toolbox_default.png" width="100%" alt="Default Image" class="tool-logo">
       </div>
       <div class="tool-info text_center">
-        <p><span class="prop-label">Difficulty</span> : <skill-level :level=tool.skill_level /></p>
-        <p><span class="prop-label">Pricing</span> : {{ tool.pricing }}</p>
-        <p><span class="prop-label">Platform</span> : </p>
+        <div class="prop-wrapper">
+          <span class="prop-label">Difficulty</span> : <skill-level :level=tool.skill_level />
+        </div>
+        <div class="prop-wrapper">
+          <span class="prop-label">Pricing</span> : {{ tool.pricing }}
+        </div>
+        <div class="prop-wrapper">
+          <span class="prop-label">Platforms</span> : 
+          <div class="platform-wrapper">
+            <a :href="tool.window" v-if="tool.window"><windows-icon/></a>
+            <a :href="tool.mac" v-if="tool.mac"><mac-icon/></a>
+            <a :href="tool.linux" v-if="tool.linux"><linux-icon/></a>
+            <a :href="tool.android" v-if="tool.android"><android-icon/></a>
+            <a :href="tool.ios" v-if="tool.ios"><ios-icon/></a>
+            <a :href="tool.web" v-if="tool.web"><web-icon/></a>  
+          </div>
+        </div>
       </div>
     </div>
     <div class="col-md-9">
@@ -28,11 +42,24 @@
 
 <script>
 import Difficulity from './difficulty'
+import WindowsIcon from 'vue-material-design-icons/windows'
+import MacIcon from 'vue-material-design-icons/apple-finder'
+import LinuxIcon from 'vue-material-design-icons/linux'
+import AndroidIcon from 'vue-material-design-icons/android'
+import IOSIcon from 'vue-material-design-icons/apple-ios'
+import WebIcon from 'vue-material-design-icons/web'
+
 export default {
   name: 'tool-details',
   props: ['tool'],
   components: {
-    'skill-level': Difficulity
+    'skill-level': Difficulity,
+    'windows-icon': WindowsIcon,
+    'mac-icon': MacIcon,
+    'linux-icon': LinuxIcon,
+    'android-icon': AndroidIcon,
+    'ios-icon': IOSIcon,
+    'web-icon': WebIcon
   },
   computed: {
     videoEmbedLink: function () {

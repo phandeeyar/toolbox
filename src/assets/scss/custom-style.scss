@@ -11,6 +11,10 @@
 	}
 }
 
+.prop-wrapper {
+	margin: 10px 0px;
+}
+
 .prop-label {
 	font-weight: bold;
 }
@@ -25,5 +29,14 @@
 			width: 18px;
 			height: 18px;
 		}
+	}
+}
+
+.platform-wrapper {
+	display:inline-block;
+	position: relative;
+    top: 13px;
+	.material-design-icon {
+		float:left;
 	}
 }
