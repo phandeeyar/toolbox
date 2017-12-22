@@ -1,7 +1,7 @@
 <template>
   <div class="row tool-details">
     <div class="col-md-12 tool-bar">
-      <router-link class="btn btn-primary" :to="{ name: 'toollist'}">Back</router-link>
+      <router-link class="btn btn-primary" :to="{ name: 'toollist'}"><back-arrow/> Back</router-link>
     </div>
     <div class="col-md-3">
       <div class="logo-wrapper">
@@ -44,7 +44,9 @@
       <div class="prop-wrapper" v-if="tool.cons">
         <span class="prop-label">Cons</span> : {{ tool.cons }}
       </div>
-
+      <div class="prop-wrapper" v-if="tool.tutorial_link">
+        <a :href="tool.tutorial_link" class="btn btn-success">Read Tutorial</a>  
+      </div>
       <iframe v-if="tool.video_tuto" width="560" height="315" :src="videoEmbedLink" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
     </div>
   </div>
@@ -54,6 +56,7 @@
 import Difficulity from './difficulty'
 import Pricing from './pricing'
 import Platforms from './platforms'
+import BackArrow from 'vue-material-design-icons/chevron-left'
 
 export default {
   name: 'tool-details',
@@ -61,7 +64,8 @@ export default {
   components: {
     'skill-level': Difficulity,
     'pricing': Pricing,
-    'platforms': Platforms
+    'platforms': Platforms,
+    'back-arrow': BackArrow
   },
   computed: {
     videoEmbedLink: function () {
