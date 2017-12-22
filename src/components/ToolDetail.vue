@@ -9,10 +9,10 @@
         <img v-else src="../assets/images/toolbox_default.png" width="100%" alt="Default Image" class="tool-logo">
       </div>
       <div class="tool-info text_center">
-        <div class="prop-wrapper">
+        <div class="prop-wrapper" v-if="tool.skill_level">
           <span class="prop-label">Difficulty</span> : <skill-level :level=tool.skill_level />
         </div>
-        <div class="prop-wrapper">
+        <div class="prop-wrapper" v-if="tool.pricing">
           <span class="prop-label">Pricing</span> : {{ tool.pricing }}
         </div>
         <div class="prop-wrapper">
@@ -25,6 +25,12 @@
             <a :href="tool.ios" v-if="tool.ios"><ios-icon/></a>
             <a :href="tool.web" v-if="tool.web"><web-icon/></a>  
           </div>
+        </div>
+        <div class="prop-wrapper" v-if="tool.opensource_yes">
+          <span class="prop-label">Opensourced : </span> {{ tool.opensource_yes }}
+        </div>
+        <div class="prop-wrapper" v-if="tool.unicode_support">
+          <span class="prop-label">Unicode Support : </span> {{ tool.unicode_support }}
         </div>
       </div>
     </div>
