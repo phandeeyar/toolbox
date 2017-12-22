@@ -4,7 +4,7 @@
       <router-link class="btn btn-primary" :to="{ name: 'toollist'}"><back-arrow/> Back</router-link>
     </div>
     <div class="col-md-3">
-      <div class="logo-wrapper">
+      <div class="tool-logo-wrapper">
         <img v-if="tool.logo_img" :src="tool.logo_img" :alt="tool.tools_name" width="100%" class="tool-logo">
         <img v-else src="../assets/images/toolbox_default.png" width="100%" alt="Default Image" class="tool-logo">
       </div>
