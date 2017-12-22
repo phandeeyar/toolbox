@@ -36,11 +36,22 @@
     </div>
     <div class="col-md-9">
       <h1>{{ tool.tools_name }}</h1>
-      <p><span class="prop-label">Type</span> : <a href="#">{{ tool.category }}</a></p>
-      <p><span class="prop-label">Use Cases</span> : {{ tool.use_cases }}</p>
-      <p><span class="prop-label">Review</span> : {{ tool.burmese_review }}</p>
-      <p><span class="prop-label">Pros</span> : {{ tool.pros }} </p>
-      <p><span class="prop-label">Cons</span> : {{ tool.cons }}</p>
+      <div class="prop-wrapper">
+        <span class="prop-label">Type</span> : <a href="#">{{ tool.category }}</a>
+      </div>
+      <div class="prop-wrapper" v-if="tool.use_cases">
+        {{ tool.use_cases }}
+      </div>
+      <div class="prop-wrapper" v-if="tool.burmese_review">
+        <span class="prop-label">Review</span> : {{ tool.burmese_review }}
+      </div>
+      <div class="prop-wrapper" v-if="tool.pros">
+        <span class="prop-label">Pros</span> : {{ tool.pros }}
+      </div>
+      <div class="prop-wrapper" v-if="tool.cons">
+        <span class="prop-label">Cons</span> : {{ tool.cons }}
+      </div>
+
       <iframe v-if="tool.video_tuto" width="560" height="315" :src="videoEmbedLink" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
     </div>
   </div>
