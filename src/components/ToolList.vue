@@ -5,11 +5,11 @@
     </div>
     <div class="col-md-6 col-sm-12 tool-wrapper" v-for="tool in filteredList">
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-4 col-sm-4 tool-logo-wrapper">
           <img v-if="tool.logo_img" :src="tool.logo_img" :alt="tool.tools_name" width="100%">
           <img v-else src="../assets/images/toolbox_default.png" width="100%" alt="Default Image">
         </div>
-        <div class="col-md-8">
+        <div class="col-md-8 col-sm-8">
             <h3>{{ tool.tools_name }}</h3>
             <p v-if="tool.skill_level">
               <span class="prop-label">Difficulity : </span>
