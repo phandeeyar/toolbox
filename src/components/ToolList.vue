@@ -11,11 +11,17 @@
         </div>
         <div class="col-md-8 col-sm-8">
             <h3>{{ tool.tools_name }}</h3>
-            <p v-if="tool.skill_level">
-              <span class="prop-label">Difficulity : </span>
-              <skill-level :level=tool.skill_level />
-            </p>
-            <p><span class="prop-label">Use Cases : </span>{{ tool.use_cases }}</p>
+            <div class="prop-wrapper">
+              <div class="platform-wrapper">
+                <a :href="tool.window" v-if="tool.window"><windows-icon/></a>
+                <a :href="tool.mac" v-if="tool.mac"><mac-icon/></a>
+                <a :href="tool.linux" v-if="tool.linux"><linux-icon/></a>
+                <a :href="tool.android" v-if="tool.android"><android-icon/></a>
+                <a :href="tool.ios" v-if="tool.ios"><ios-icon/></a>
+                <a :href="tool.web" v-if="tool.web"><web-icon/></a>  
+              </div>
+            </div>
+            <p>{{ tool.use_cases }}</p>
             <p>
               <router-link class="btn btn-primary" :to="{ name: 'details', params: { toolId: tool.slug }}">View Detials</router-link>
             </p>
@@ -26,12 +32,22 @@
 </template>
 
 <script>
-import Difficulity from './difficulty'
+import WindowsIcon from 'vue-material-design-icons/windows'
+import MacIcon from 'vue-material-design-icons/apple-finder'
+import LinuxIcon from 'vue-material-design-icons/linux'
+import AndroidIcon from 'vue-material-design-icons/android'
+import IOSIcon from 'vue-material-design-icons/apple-ios'
+import WebIcon from 'vue-material-design-icons/web'
 export default {
   name: 'tool-list',
   props: ['tools'],
   components: {
-    'skill-level': Difficulity
+    'windows-icon': WindowsIcon,
+    'mac-icon': MacIcon,
+    'linux-icon': LinuxIcon,
+    'android-icon': AndroidIcon,
+    'ios-icon': IOSIcon,
+    'web-icon': WebIcon
   },
   data () {
     return {
