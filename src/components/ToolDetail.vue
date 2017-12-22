@@ -9,11 +9,11 @@
         <img v-else src="../assets/images/toolbox_default.png" width="100%" alt="Default Image" class="tool-logo">
       </div>
       <div class="tool-info text_center">
+        <div class="prop-wrapper" v-if="tool.pricing">
+          <pricing :pricing="tool.pricing"/>
+        </div>
         <div class="prop-wrapper" v-if="tool.skill_level">
           <span class="prop-label">Difficulty</span> : <skill-level :level=tool.skill_level />
-        </div>
-        <div class="prop-wrapper" v-if="tool.pricing">
-          <span class="prop-label">Pricing</span> : {{ tool.pricing }}
         </div>
         <div class="prop-wrapper">
           <span class="prop-label">Platforms</span> : 
@@ -48,6 +48,7 @@
 
 <script>
 import Difficulity from './difficulty'
+import Pricing from './pricing'
 import WindowsIcon from 'vue-material-design-icons/windows'
 import MacIcon from 'vue-material-design-icons/apple-finder'
 import LinuxIcon from 'vue-material-design-icons/linux'
@@ -60,6 +61,7 @@ export default {
   props: ['tool'],
   components: {
     'skill-level': Difficulity,
+    'pricing': Pricing,
     'windows-icon': WindowsIcon,
     'mac-icon': MacIcon,
     'linux-icon': LinuxIcon,
