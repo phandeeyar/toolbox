@@ -17,14 +17,7 @@
         </div>
         <div class="prop-wrapper">
           <span class="prop-label">Platforms</span> : 
-          <div class="platform-wrapper">
-            <a :href="tool.window" v-if="tool.window"><windows-icon/></a>
-            <a :href="tool.mac" v-if="tool.mac"><mac-icon/></a>
-            <a :href="tool.linux" v-if="tool.linux"><linux-icon/></a>
-            <a :href="tool.android" v-if="tool.android"><android-icon/></a>
-            <a :href="tool.ios" v-if="tool.ios"><ios-icon/></a>
-            <a :href="tool.web" v-if="tool.web"><web-icon/></a>  
-          </div>
+          <platforms :tool="tool"/>
         </div>
         <div class="prop-wrapper" v-if="tool.opensource_yes">
           <span class="prop-label">Opensourced : </span> {{ tool.opensource_yes }}
@@ -60,12 +53,7 @@
 <script>
 import Difficulity from './difficulty'
 import Pricing from './pricing'
-import WindowsIcon from 'vue-material-design-icons/windows'
-import MacIcon from 'vue-material-design-icons/apple-finder'
-import LinuxIcon from 'vue-material-design-icons/linux'
-import AndroidIcon from 'vue-material-design-icons/android'
-import IOSIcon from 'vue-material-design-icons/apple-ios'
-import WebIcon from 'vue-material-design-icons/web'
+import Platforms from './platforms'
 
 export default {
   name: 'tool-details',
@@ -73,12 +61,7 @@ export default {
   components: {
     'skill-level': Difficulity,
     'pricing': Pricing,
-    'windows-icon': WindowsIcon,
-    'mac-icon': MacIcon,
-    'linux-icon': LinuxIcon,
-    'android-icon': AndroidIcon,
-    'ios-icon': IOSIcon,
-    'web-icon': WebIcon
+    'platforms': Platforms
   },
   computed: {
     videoEmbedLink: function () {
