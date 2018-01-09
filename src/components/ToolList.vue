@@ -1,25 +1,33 @@
 <template>
-  <div class="row" id="tool-list">
-    <div class="col-md-12 search-box">
-      <input v-model="search" type="text" class="form-control" id="toolSearch" placeholder="Search ...">
+  <div id="tool-list">
+    <div class="row filter-bar">
+      <div class="col-md-8 col-sm-12 search-box">
+        <input v-model="filters.search" type="text" class="form-control" id="toolSearch" placeholder="Search ...">
+      </div>
+      <div class="col-md-4 col-sm-12 category-filter">
+        <b-form-select v-model="filters.category" :options="categories" class="mb-3">
+        </b-form-select>
+      </div>  
     </div>
-    <div class="col-md-6 col-sm-12 tool-wrapper" v-for="tool in filteredList">
-      <div class="row">
-        <div class="col-md-4 col-sm-4 tool-logo-wrapper">
-          <router-link :to="{ name: 'details', params: { toolId: tool.slug }}">
-          <img v-if="tool.logo_img" :src="tool.logo_img" :alt="tool.tools_name" width="100%">
-          <img v-else src="../assets/images/toolbox_default.png" width="100%" alt="Default Image">
-          </router-link>
-        </div>
-        <div class="col-md-8 col-sm-8">
-            <h3>{{ tool.tools_name }}</h3>
-            <div class="prop-wrapper">
-              <platforms :tool="tool"/>
-            </div>
-            <p>{{ tool.use_cases }}</p>
-            <p>
-              <router-link class="btn btn-primary" :to="{ name: 'details', params: { toolId: tool.slug }}">View Detials</router-link>
-            </p>
+    <div class="row">
+      <div class="col-md-6 col-sm-12 tool-wrapper" v-for="tool in filteredList">
+        <div class="row">
+          <div class="col-md-4 col-sm-4 tool-logo-wrapper">
+            <router-link :to="{ name: 'details', params: { toolId: tool.slug }}">
+            <img v-if="tool.logo_img" :src="tool.logo_img" :alt="tool.tools_name" width="100%">
+            <img v-else src="../assets/images/toolbox_default.png" width="100%" alt="Default Image">
+            </router-link>
+          </div>
+          <div class="col-md-8 col-sm-8">
+              <h3>{{ tool.tools_name }}</h3>
+              <div class="prop-wrapper">
+                <platforms :tool="tool"/>
+              </div>
+              <p>{{ tool.use_cases }}</p>
+              <p>
+                <router-link class="btn btn-primary" :to="{ name: 'details', params: { toolId: tool.slug }}">View Detials</router-link>
+              </p>
+          </div>
         </div>
       </div>
     </div>
@@ -36,7 +44,19 @@ export default {
   },
   data () {
     return {
-      search: '',
+      filters: {
+        category: '',
+        search: ''
+      },
+      categories: [
+        { value: '', text: '-- Filter Category --' },
+        { value: 'productivity', text: 'Productivity' },
+        { value: 'mapping', text: 'Mapping' },
+        { value: 'data', text: 'Data' },
+        { value: 'digital-security', text: 'Digital Security' },
+        { value: 'automation', text: 'Automation' },
+        { value: 'social-media', text: 'Social Media' }
+      ],
       tools: this.tools
     }
   },
@@ -44,7 +64,11 @@ export default {
     filteredList: function () {
       return this.tools.filter((function (_this) {
         return function (tool) {
-          return tool.tools_name.toLowerCase().includes(_this.search.toLowerCase())
+          if (_this.filters.category !== '') {
+            return tool.category === _this.filters.category && tool.tools_name.toLowerCase().includes(_this.filters.search.toLowerCase())
+          } else {
+            return tool.tools_name.toLowerCase().includes(_this.filters.search.toLowerCase())
+          }
         }
       })(this))
     }
@@ -53,7 +77,7 @@ export default {
 </script>
 
 <style>
-  .search-box {
+  .search-box, .category-filter {
     margin: 30px 0px;
   }
 </style>
