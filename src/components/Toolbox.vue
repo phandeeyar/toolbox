@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <tool-details v-if="toolId" :tool="tool"/>
-    <tool-list v-else :tools="tools"/>
+    <tool-list v-else :tools="tools" :loading="loading"/>
     <jumper-loading v-if="loading" style="margin:100px auto;"/>
   </div>
 </template>
