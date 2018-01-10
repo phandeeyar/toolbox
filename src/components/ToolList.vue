@@ -10,6 +10,9 @@
       </div>  
     </div>
     <div class="row">
+      <div class="col-md-12" v-if="toolCount === 0">
+        No Result for <strong>{{ filters.search }}</strong> <span v-if="filters.category">in <strong>{{ filters.category }}</strong> Category</span>
+      </div>
       <div class="col-md-6 col-sm-12 tool-wrapper" v-for="tool in filteredList">
         <div class="row">
           <div class="col-md-4 col-sm-4 tool-logo-wrapper">
@@ -71,6 +74,9 @@ export default {
           }
         }
       })(this))
+    },
+    toolCount: function () {
+      return this.filteredList.length
     }
   }
 }
