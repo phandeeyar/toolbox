@@ -1,5 +1,5 @@
 <template>
-  <div class="row tool-details">
+  <div class="row tool-details" v-if="tool">
     <div class="col-md-12 tool-bar">
       <router-link class="btn btn-primary" :to="{ name: 'toollist'}"><back-arrow/> Back</router-link>
     </div>

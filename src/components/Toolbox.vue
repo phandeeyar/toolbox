@@ -2,11 +2,13 @@
   <div class="container">
     <tool-details v-if="toolId" :tool="tool"/>
     <tool-list v-else :tools="tools"/>
+    <jumper-loading v-if="loading" style="margin:100px auto;"/>
   </div>
 </template>
 <script>
 import ToolList from './ToolList'
 import ToolDetails from './ToolDetail'
+import {Jumper} from 'vue-loading-spinner'
 
 export default {
   name: 'toolbox',
@@ -15,13 +17,15 @@ export default {
   },
   components: {
     'tool-list': ToolList,
-    'tool-details': ToolDetails
+    'tool-details': ToolDetails,
+    'jumper-loading': Jumper
   },
   data () {
     return {
       search: '',
       tools: [],
-      tool: ''
+      tool: '',
+      loading: true
     }
   },
   watch: {
@@ -40,6 +44,7 @@ export default {
         callback: function (data, tabletop) {
           parent.tools = data
           parent.getPost()
+          parent.loading = false
         },
         simpleSheet: true
       })
