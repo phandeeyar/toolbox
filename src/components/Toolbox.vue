@@ -39,6 +39,7 @@ export default {
         key: '1b4izBhz69O3GaiJx1SL94PNRvaIiZFfq-BM9pMPtBD4',
         callback: function (data, tabletop) {
           parent.tools = data
+          parent.getPost()
         },
         simpleSheet: true
       })
