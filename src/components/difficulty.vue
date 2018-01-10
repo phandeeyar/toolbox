@@ -1,6 +1,6 @@
 <template>
   <div class="diff-wrapper">
-    <span v-for="level in diffArray">
+    <span v-for="level in diffArray" :class="levelClass">
       <circle-icon v-if="level"/>
       <cirlce-outline-icon v-else="level"/>
     </span>
@@ -29,6 +29,9 @@ export default {
         }
       }
       return diffArray
+    },
+    levelClass: function () {
+      return 'lv' + this.level
     }
   }
 }

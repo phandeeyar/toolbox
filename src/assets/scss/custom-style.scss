@@ -41,6 +41,32 @@
 			height: 18px;
 		}
 	}
+	#circle-outline-icon {
+		.material-design-icon__svg {
+			fill:#bdbdbd;
+		}
+	}
+	.lv1, .lv2 {
+		#circle-icon {
+			.material-design-icon__svg {
+				fill:#4CAF50;
+			}
+		}
+	}
+	.lv3, .lv4 {
+		#circle-icon {
+			.material-design-icon__svg {
+				fill:#FFC107;
+			}
+		}
+	}
+	.lv5 {
+		#circle-icon {
+			.material-design-icon__svg {
+				fill:#F44336;
+			}
+		}
+	}
 }
 
 .platform-wrapper {
@@ -49,6 +75,31 @@
     top: 13px;
 	.material-design-icon {
 		float:left;
+	}
+	#android-icon {
+		.material-design-icon__svg {
+			fill:#7AC05D;
+		}
+	}
+	#apple-ios-icon {
+		.material-design-icon__svg {
+			fill:#999999;
+		}
+	}
+	#apple-finder-icon {
+		.material-design-icon__svg {
+			fill:#4E68C9;
+		}
+	}
+	#web-icon {
+		.material-design-icon__svg {
+			fill:#999999;
+		}
+	}
+	#windows-icon {
+		.material-design-icon__svg {
+			fill:#1FAFF1;
+		}
 	}
 }
 
