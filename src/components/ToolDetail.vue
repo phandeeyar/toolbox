@@ -20,10 +20,10 @@
           <platforms :tool="tool"/>
         </div>
         <div class="prop-wrapper" v-if="tool.opensource_yes">
-          <span class="prop-label">Opensourced : </span> {{ tool.opensource_yes }}
+          <span class="badge badge-success">Opensourced</span>
         </div>
         <div class="prop-wrapper" v-if="tool.unicode_support">
-          <span class="prop-label">Unicode Support : </span> {{ tool.unicode_support }}
+          <span class="badge badge-primary">Myanmar Unicode Support</span>
         </div>
       </div>
     </div>
@@ -73,6 +73,18 @@ export default {
   computed: {
     videoEmbedLink: function () {
       return this.tool.video_tuto.replace('watch?v=', 'embed/')
+    },
+    supportUnicode: function () {
+      if (this.tool.unicode_support === 'y') {
+        return true
+      }
+      return false
+    },
+    openSourced: function () {
+      if (this.tool.opensource_yes === 'y') {
+        return true
+      }
+      return false
     }
   }
 }
