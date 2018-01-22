@@ -30,7 +30,10 @@
     <div class="col-md-9">
       <h1>{{ tool.tools_name }}</h1>
       <div class="prop-wrapper">
-        <span class="prop-label">Type</span> : <a href="#">{{ tool.category }}</a>
+        <span class="prop-label">Type</span> : 
+        <router-link :to="{ name: 'category', params: { categorySlug: tool.category }}">
+          {{ tool.category }}
+        </router-link>
       </div>
       <div class="prop-wrapper" v-if="tool.use_cases">
         {{ tool.use_cases }}

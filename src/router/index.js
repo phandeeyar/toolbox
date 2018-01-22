@@ -17,6 +17,12 @@ export default new Router({
       name: 'details',
       component: Toolbox,
       props: true
+    },
+    {
+      path: '/category/:categorySlug',
+      name: 'category',
+      component: Toolbox,
+      props: true
     }
   ]
 })

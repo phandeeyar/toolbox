@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <tool-details v-if="toolId" :tool="tool"/>
-    <tool-list v-else :tools="tools" :loading="loading"/>
+    <tool-list v-else :tools="tools" :loading="loading" :categorySlug="categorySlug"/>
     <jumper-loading v-if="loading" style="margin:100px auto;"/>
   </div>
 </template>
@@ -13,7 +13,8 @@ import {Jumper} from 'vue-loading-spinner'
 export default {
   name: 'toolbox',
   props: {
-    toolId: String
+    toolId: String,
+    categorySlug: String
   },
   components: {
     'tool-list': ToolList,
@@ -53,6 +54,12 @@ export default {
       var parent = this
       this.tool = this.tools.find(function (tool) {
         return tool.slug === parent.toolId
+      })
+    },
+    getToolsByCategory () {
+      var parent = this
+      this.tool = this.tools.find(function (tool) {
+        return tool.category === parent.categorySlug
       })
     }
   }

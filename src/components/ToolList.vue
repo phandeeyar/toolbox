@@ -5,7 +5,7 @@
         <input v-model="filters.search" type="text" class="form-control" id="toolSearch" placeholder="Search ...">
       </div>
       <div class="col-md-4 col-sm-12 category-filter">
-        <b-form-select v-model="filters.category" :options="categories" class="mb-3">
+        <b-form-select v-model="filters.category" :options="categories" class="mb-3" v-on:change="changeRoute($event)">
         </b-form-select>
       </div>  
     </div>
@@ -41,7 +41,7 @@
 import Platforms from './platforms'
 export default {
   name: 'tool-list',
-  props: ['tools', 'loading'],
+  props: ['tools', 'loading', 'categorySlug'],
   components: {
     'platforms': Platforms
   },
@@ -59,8 +59,7 @@ export default {
         { value: 'digital-security', text: 'Digital Security' },
         { value: 'automation', text: 'Automation' },
         { value: 'social-media', text: 'Social Media' }
-      ],
-      tools: this.tools
+      ]
     }
   },
   computed: {
@@ -77,6 +76,17 @@ export default {
     },
     toolCount: function () {
       return this.filteredList.length
+    }
+  },
+  beforeMount () {
+    if (this.categorySlug) {
+      this.filters.category = this.categorySlug
+    }
+  },
+  methods: {
+    changeRoute: function (event) {
+      console.log('change to ' + event)
+      this.$router.push({ name: 'category', params: { categorySlug: event } })
     }
   }
 }
