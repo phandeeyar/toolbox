@@ -13,7 +13,7 @@
           <pricing :pricing="tool.pricing"/>
         </div>
         <div class="prop-wrapper" v-if="tool.skill_level">
-          <span class="prop-label">Difficulty</span> : <skill-level :level=tool.skill_level />
+          <span class="prop-label">Skill Level</span> : <skill-level :level=tool.skill_level />
         </div>
         <div class="prop-wrapper">
           <span class="prop-label">Platforms</span> : 
