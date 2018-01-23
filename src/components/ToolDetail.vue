@@ -1,7 +1,12 @@
 <template>
   <div class="row tool-details" v-if="tool">
     <div class="col-md-12 tool-bar">
-      <router-link class="btn btn-primary" :to="{ name: 'toollist'}"><back-arrow/> Back</router-link>
+      <router-link
+          class="btn btn-primary"
+          v-if="$routerHistory.hasHistory()"
+          :to="{ path: $routerHistory.previous().path }">
+          <back-arrow/> Back
+      </router-link>
     </div>
     <div class="col-md-3">
       <div class="tool-logo-wrapper">

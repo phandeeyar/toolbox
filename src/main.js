@@ -5,10 +5,14 @@ import App from './App'
 import router from './router'
 import TableTop from '../node_modules/tabletop/src/tabletop.min.js'
 import BootstrapVue from 'bootstrap-vue'
+import { routerHistory, writeHistory } from 'vue-router-back-button'
 
 Vue.config.productionTip = false
 Vue.prototype.$tabletop = TableTop
 Vue.use(BootstrapVue)
+Vue.use(routerHistory)
+
+router.afterEach(writeHistory)
 
 /* eslint-disable no-new */
 new Vue({
