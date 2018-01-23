@@ -1,5 +1,15 @@
 # Phandeeyar Toolbox
 
+Google Sheet Data into simple searchable browsing tool using Vue.js
+
+##Packages
+- [Vue.js](https://vuejs.org/)
+- [vue-router](https://router.vuejs.org/en/)
+- [bootstrap-vue](https://bootstrap-vue.js.org)
+- [tabletopJS](https://github.com/jsoma/tabletop)
+- [vue-loading-spinner](https://github.com/nguyenvanduocit/vue-loading-spinner)
+- [vue-material-design-icons](https://gitlab.com/robcresswell/vue-material-design-icons)
+
 ## Build Setup
 
 ``` bash
