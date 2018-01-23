@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <tool-details v-if="toolId" :tool="tool"/>
-    <tool-list v-else :tools="tools" :loading="loading" :categorySlug="categorySlug"/>
+    <tool-list v-else :tools="tools" :loading="loading" :categorySlug="categorySlug" :categories="categories"/>
     <jumper-loading v-if="loading" style="margin:100px auto;"/>
   </div>
 </template>
@@ -25,6 +25,7 @@ export default {
     return {
       search: '',
       tools: [],
+      categories: [],
       tool: '',
       loading: true
     }
@@ -43,11 +44,11 @@ export default {
       this.$tabletop.init({
         key: '1b4izBhz69O3GaiJx1SL94PNRvaIiZFfq-BM9pMPtBD4',
         callback: function (data, tabletop) {
-          parent.tools = data
+          parent.tools = tabletop.sheets('tools').all()
+          parent.categories = tabletop.sheets('categories').all()
           parent.getPost()
           parent.loading = false
-        },
-        simpleSheet: true
+        }
       })
     },
     getPost () {

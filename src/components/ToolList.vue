@@ -6,6 +6,9 @@
       </div>
       <div class="col-md-4 col-sm-12 category-filter">
         <b-form-select v-model="filters.category" :options="categories" class="mb-3" v-on:change="changeRoute($event)">
+          <template slot="first">
+              <option value=""> -- Filter Category -- </option>
+          </template>
         </b-form-select>
       </div>  
     </div>
@@ -41,7 +44,7 @@
 import Platforms from './platforms'
 export default {
   name: 'tool-list',
-  props: ['tools', 'loading', 'categorySlug'],
+  props: ['tools', 'loading', 'categorySlug', 'categories'],
   components: {
     'platforms': Platforms
   },
@@ -50,16 +53,7 @@ export default {
       filters: {
         category: '',
         search: ''
-      },
-      categories: [
-        { value: '', text: '-- Filter Category --' },
-        { value: 'productivity', text: 'Productivity' },
-        { value: 'mapping', text: 'Mapping' },
-        { value: 'data', text: 'Data' },
-        { value: 'digital-security', text: 'Digital Security' },
-        { value: 'automation', text: 'Automation' },
-        { value: 'social-media', text: 'Social Media' }
-      ]
+      }
     }
   },
   computed: {
