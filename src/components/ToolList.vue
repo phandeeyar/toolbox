@@ -31,7 +31,7 @@
               </div>
               <p>{{ tool.use_cases }}</p>
               <p>
-                <router-link class="btn btn-primary" :to="{ name: 'details', params: { toolId: tool.slug }}">View Detials</router-link>
+                <router-link class="btn btn-primary" :to="{ name: 'details', params: { toolId: tool.slug }}">View Details</router-link>
               </p>
           </div>
         </div>
