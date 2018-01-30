@@ -7,6 +7,12 @@
           :to="{ path: $routerHistory.previous().path }">
           <back-arrow/> Back
       </router-link>
+      <router-link 
+        v-else
+        class="btn btn-primary" 
+        :to="{ name: 'toollist'}">
+        <back-arrow/> View All Tools
+      </router-link>
     </div>
     <div class="col-md-3">
       <div class="tool-logo-wrapper">
