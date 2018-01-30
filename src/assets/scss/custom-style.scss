@@ -34,11 +34,65 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .prop-wrapper {
-	margin: 10px 0px;
+	margin: 20px 0px;
+	&.use_case {
+		background: rgb(103, 68, 154);
+		padding:10px;
+		color: #fff;
+	}
+	&.review {
+		.prop-label  {
+			color: #007bff;
+		}
+		.material-design-icon__svg {
+			fill: #007bff;
+		}
+	}
+	&.pros {
+		.prop-label  {
+			color: #28a745;
+		}
+		.material-design-icon__svg {
+			fill: #28a745;
+		}
+	}
+
+	&.cons {
+		.prop-label  {
+			color: #FFC107;
+		}
+		.material-design-icon__svg {
+			fill: #FFC107;
+		}
+	}
+
+	&.tutorials {
+		.prop-label  {
+			color: #67449a;
+		}
+		.material-design-icon__svg {
+			fill: #67449a;
+		}
+	}
 }
 
 .prop-label {
 	font-weight: bold;
+	text-transform: uppercase;
+	display:inline-block;
+	margin-bottom: 5px;
+	.material-design-icon {
+		float:left;
+		margin-right: 10px;
+		.material-design-icon__svg {
+			width: 18px;
+			height: 18px;
+		}
+	}
+}
+
+.main_title {
+	color: #67449a;
 }
 
 .diff-wrapper {

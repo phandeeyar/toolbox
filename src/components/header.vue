@@ -1,8 +1,7 @@
 <template>
 	<header class="text-center">
 		<rainbow-bar/>
-		<img src="../assets/images/pdy-logo.png" width="200px" alt="Phandeeyar" class="pdy-logo">
-		<h1>Toolbox</h1>
+		<h1 class="main_title text-center">Phandeeyar Toolbox</h1>
 	</header>
 </template>
 

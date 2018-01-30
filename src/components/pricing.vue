@@ -16,7 +16,7 @@ export default {
   },
   computed: {
     labelClass: function () {
-      return 'badge ' + this.labels[this.pricing.toLowerCase()]
+      return 'badge badge-pill ' + this.labels[this.pricing.toLowerCase()]
     }
   }
 }
