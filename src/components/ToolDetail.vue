@@ -75,8 +75,8 @@
         <p>
           <a :href="tool.tutorial_link" class="btn btn-success">Read Tutorial</a>    
         </p>
+        <iframe v-if="tool.video_tuto" width="560" height="315" :src="videoEmbedLink" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
       </div>
-      <iframe v-if="tool.video_tuto" width="560" height="315" :src="videoEmbedLink" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
     </div>
   </div>
 </template>
