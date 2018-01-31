@@ -24,7 +24,7 @@
             <img v-else src="../assets/images/toolbox_default.png" width="100%" alt="Default Image">
             </router-link>
           </div>
-          <div class="col-md-8 col-sm-8">
+          <div class="col-md-8 col-sm-8 tool-content-wrapper">
               <h3>{{ tool.tools_name }}</h3>
               <div class="prop-wrapper">
                 <platforms :tool="tool"/>

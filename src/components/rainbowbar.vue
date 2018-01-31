@@ -17,7 +17,7 @@ export default {
 .rainbow-bar {
 	list-style:none;
 	width:100%;
-	margin:0 0 50px 0;
+	margin:0 0 0px 0;
 	padding:0px;
 	font-size: 0;
 }

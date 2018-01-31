@@ -14,11 +14,12 @@
         <back-arrow/> View All Tools
       </router-link>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-3 left-column">
       <div class="tool-logo-wrapper">
         <img v-if="tool.logo_img" :src="tool.logo_img" :alt="tool.tools_name" width="100%" class="tool-logo">
         <img v-else src="../assets/images/toolbox_default.png" width="100%" alt="Default Image" class="tool-logo">
       </div>
+      <h1 class="tool-name">{{ tool.tools_name }}</h1>
       <div class="tool-info text_center">
         <div class="prop-wrapper">
           <pricing :pricing="tool.pricing" v-if="tool.pricing"/>
@@ -53,8 +54,8 @@
         </div>
       </div>
     </div>
-    <div class="col-md-9">
-      <h1>{{ tool.tools_name }}</h1>
+    <div class="col-md-9 right-column">
+      <h1 class="tool-name">{{ tool.tools_name }}</h1>
       <div class="prop-wrapper use_case" v-if="tool.use_cases">
         {{ tool.use_cases }}
       </div>
@@ -75,7 +76,9 @@
         <p>
           <a :href="tool.tutorial_link" class="btn btn-success">Read Tutorial</a>    
         </p>
-        <iframe v-if="tool.video_tuto" width="560" height="315" :src="videoEmbedLink" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+        <div class="video_wrapper">
+          <iframe v-if="tool.video_tuto" width="560" height="315" :src="videoEmbedLink" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>  
+        </div>
       </div>
     </div>
   </div>
