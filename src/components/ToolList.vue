@@ -27,7 +27,7 @@
           <div class="col-md-8 col-sm-8 tool-content-wrapper">
               <h3>{{ tool.tools_name }}</h3>
               <div class="prop-wrapper">
-                <platforms :tool="tool"/>
+                <platforms :tool="tool" type="icons"/>
               </div>
               <p>{{ tool.use_cases }}</p>
               <p>

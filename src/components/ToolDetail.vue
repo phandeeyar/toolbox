@@ -13,6 +13,7 @@
         :to="{ name: 'toollist'}">
         <back-arrow/> View All Tools
       </router-link>
+      <platforms :tool="tool" type="download_btn" class="tool_download_button"/>
     </div>
     <div class="col-md-3 left-column">
       <div class="tool-logo-wrapper">
@@ -49,7 +50,7 @@
         <div class="prop-wrapper">
           <span class="prop-label">Platforms</span>
           <p>
-            <platforms :tool="tool"/>  
+            <platforms :tool="tool" type="icons"/>  
           </p> 
         </div>
       </div>

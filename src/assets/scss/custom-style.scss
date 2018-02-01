@@ -12,6 +12,7 @@ h1, h2, h3, h4, h5, h6 {
 .material-design-icon {
 	float:left;
 }
+
 .tool-bar {
 	.material-design-icon {
 		height: 24px;
@@ -20,6 +21,7 @@ h1, h2, h3, h4, h5, h6 {
 		}
 	}
 }
+
 .tool-wrapper {
 	margin: 15px 0px;
 }
@@ -185,6 +187,12 @@ h1, h2, h3, h4, h5, h6 {
 	img {
 		width:100%;
 	}
+}
+
+.tool_download_button {
+	position: relative;
+    top: 0px;
+    float: right;
 }
 
 .left-column .tool-name {
