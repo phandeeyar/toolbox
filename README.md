@@ -4,7 +4,7 @@ Phandeeyar toolbox is a curated list of tools for phandeeyar’s pandas and part
 
 Google Sheet Data into simple searchable browsing tool using Vue.js
 
-##Packages
+## Packages
 
 - [Vue.js](https://vuejs.org/)
 - [vue-router](https://router.vuejs.org/en/)
@@ -12,6 +12,7 @@ Google Sheet Data into simple searchable browsing tool using Vue.js
 - [tabletopJS](https://github.com/jsoma/tabletop)
 - [vue-loading-spinner](https://github.com/nguyenvanduocit/vue-loading-spinner)
 - [vue-material-design-icons](https://gitlab.com/robcresswell/vue-material-design-icons)
+- [vue-analytics](https://github.com/MatteoGabriele/vue-analytics)
 
 ## Build Setup
 

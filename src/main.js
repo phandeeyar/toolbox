@@ -6,11 +6,15 @@ import router from './router'
 import TableTop from '../node_modules/tabletop/src/tabletop.min.js'
 import BootstrapVue from 'bootstrap-vue'
 import { routerHistory, writeHistory } from 'vue-router-back-button'
+import VueAnalytics from 'vue-analytics'
 
 Vue.config.productionTip = false
 Vue.prototype.$tabletop = TableTop
 Vue.use(BootstrapVue)
 Vue.use(routerHistory)
+Vue.use(VueAnalytics, {
+  id: 'UA-78743639-2'
+})
 
 router.afterEach(writeHistory)
 
