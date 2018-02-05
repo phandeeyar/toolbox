@@ -13,7 +13,8 @@ Vue.prototype.$tabletop = TableTop
 Vue.use(BootstrapVue)
 Vue.use(routerHistory)
 Vue.use(VueAnalytics, {
-  id: 'UA-78743639-2'
+  id: 'UA-78743639-2',
+  router
 })
 
 router.afterEach(writeHistory)
