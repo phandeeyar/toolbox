@@ -16,10 +16,7 @@
       <platforms :tool="tool" type="download_btn" class="tool_download_button" v-if="tool.resource_type !== 'curriculum'"/>
     </div>
     <div class="col-md-3 left-column">
-      <div class="tool-logo-wrapper">
-        <img v-if="tool.logo_img" :src="tool.logo_img" :alt="tool.tools_name" width="100%" class="tool-logo">
-        <img v-else src="../assets/images/toolbox_default.png" width="100%" alt="Default Image" class="tool-logo">
-      </div>
+      <tool-logo :tool="tool"/>
       <h1 class="tool-name">{{ tool.tools_name }}</h1>
       <div class="tool-info text_center">
         <div class="prop-wrapper">
@@ -90,6 +87,7 @@
 import Difficulity from './difficulty'
 import Pricing from './pricing'
 import Platforms from './platforms'
+import ToolLogo from './toolLogo'
 import BackArrow from 'vue-material-design-icons/chevron-left'
 import ForumIcon from 'vue-material-design-icons/forum'
 import ThumbUpIcon from 'vue-material-design-icons/thumb-up'
@@ -103,6 +101,7 @@ export default {
     'skill-level': Difficulity,
     'pricing': Pricing,
     'platforms': Platforms,
+    'tool-logo': ToolLogo,
     'back-arrow': BackArrow,
     'forum-icon': ForumIcon,
     'thumb-up-icon': ThumbUpIcon,

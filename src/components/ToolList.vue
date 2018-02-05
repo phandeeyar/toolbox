@@ -18,10 +18,9 @@
       </div>
       <div class="col-md-6 col-sm-12 tool-wrapper" v-for="tool in filteredList">
         <div class="row">
-          <div class="col-md-4 col-sm-4 tool-logo-wrapper">
+          <div class="col-md-4 col-sm-4">
             <router-link :to="{ name: 'details', params: { toolId: tool.slug }}">
-            <img v-if="tool.logo_img" :src="tool.logo_img" :alt="tool.tools_name" width="100%">
-            <img v-else src="../assets/images/toolbox_default.png" width="100%" alt="Default Image">
+              <tool-logo :tool="tool"/>
             </router-link>
           </div>
           <div class="col-md-8 col-sm-8 tool-content-wrapper">
@@ -42,11 +41,13 @@
 
 <script>
 import Platforms from './platforms'
+import ToolLogo from './toolLogo'
 export default {
   name: 'tool-list',
   props: ['tools', 'loading', 'categorySlug', 'categories'],
   components: {
-    'platforms': Platforms
+    'platforms': Platforms,
+    'tool-logo': ToolLogo
   },
   data () {
     return {
