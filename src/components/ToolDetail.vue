@@ -13,7 +13,7 @@
         :to="{ name: 'toollist'}">
         <back-arrow/> View All Tools
       </router-link>
-      <platforms :tool="tool" type="download_btn" class="tool_download_button"/>
+      <platforms :tool="tool" type="download_btn" class="tool_download_button" v-if="tool.resource_type !== 'curriculum'"/>
     </div>
     <div class="col-md-3 left-column">
       <div class="tool-logo-wrapper">
@@ -47,7 +47,7 @@
             <skill-level :level=tool.skill_level />
           </p>
         </div>
-        <div class="prop-wrapper">
+        <div class="prop-wrapper" v-if="tool.resource_type !== 'curriculum'">
           <span class="prop-label">Platforms</span>
           <p>
             <platforms :tool="tool" type="icons"/>  
@@ -75,7 +75,8 @@
       <div class="prop-wrapper tutorials" v-if="tool.tutorial_link">
         <span class="prop-label"><tuts-icon/> Tutorials</span>
         <p>
-          <a :href="tool.tutorial_link" class="btn btn-success">Read Tutorial</a>    
+          <a :href="tool.tutorial_link" class="btn btn-success" v-if="tool.resource_type === 'curriculum'">Get Curriculum</a>    
+          <a :href="tool.tutorial_link" class="btn btn-success" v-else>Read Tutorial</a>    
         </p>
         <div class="video_wrapper">
           <iframe v-if="tool.video_tuto" width="560" height="315" :src="videoEmbedLink" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>  
