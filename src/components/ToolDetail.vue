@@ -69,9 +69,9 @@
         <span class="prop-label"><forum-icon/> Review</span> 
         <p>{{ tool.burmese_review }}</p>
       </div>
-      <div class="prop-wrapper tutorials" v-if="tool.tutorial_link">
+      <div class="prop-wrapper tutorials" v-if="showTuts">
         <span class="prop-label"><tuts-icon/> Tutorials</span>
-        <p>
+        <p v-if="tool.tutorial_link">
           <a :href="tool.tutorial_link" class="btn btn-success" v-if="tool.resource_type === 'curriculum'">Get Curriculum</a>    
           <a :href="tool.tutorial_link" class="btn btn-success" v-else>Read Tutorial</a>    
         </p>
@@ -120,6 +120,12 @@ export default {
     },
     openSourced: function () {
       if (this.tool.opensource_yes === 'y') {
+        return true
+      }
+      return false
+    },
+    showTuts: function () {
+      if (this.tool.tutorial_link || this.tool.video_tuto) {
         return true
       }
       return false
